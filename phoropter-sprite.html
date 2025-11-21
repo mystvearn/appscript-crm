@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoropter Sprite - CSS Pixel Art</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .phoropter-sprite {
+            position: relative;
+            width: 320px;
+            height: 280px;
+            margin: 20px auto;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            transform: scale(1);
+        }
+
+        /* Main body of phoropter */
+        .phoropter-body {
+            position: absolute;
+            left: 80px;
+            top: 80px;
+            width: 160px;
+            height: 80px;
+            background: #3a3a3a;
+            border: 3px solid #2a2a2a;
+        }
+
+        /* Top section - darker housing */
+        .phoropter-top {
+            position: absolute;
+            left: 90px;
+            top: 60px;
+            width: 140px;
+            height: 25px;
+            background: #2a2a2a;
+            border: 2px solid #1a1a1a;
+        }
+
+        /* Control knobs on top */
+        .control-knob-left {
+            position: absolute;
+            left: 100px;
+            top: 50px;
+            width: 12px;
+            height: 12px;
+            background: #5a5a5a;
+            border-radius: 50%;
+            border: 2px solid #4a4a4a;
+        }
+
+        .control-knob-center {
+            position: absolute;
+            left: 150px;
+            top: 45px;
+            width: 20px;
+            height: 20px;
+            background: #6a6a6a;
+            border-radius: 50%;
+            border: 2px solid #5a5a5a;
+        }
+
+        .control-knob-center::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 6px;
+            height: 6px;
+            background: #4a4a4a;
+            border-radius: 50%;
+        }
+
+        .control-knob-right {
+            position: absolute;
+            left: 195px;
+            top: 50px;
+            width: 12px;
+            height: 12px;
+            background: #5a5a5a;
+            border-radius: 50%;
+            border: 2px solid #4a4a4a;
+        }
+
+        /* Additional controls and dials */
+        .top-dial {
+            position: absolute;
+            left: 120px;
+            top: 55px;
+            width: 8px;
+            height: 8px;
+            background: #7a7a7a;
+            border-radius: 50%;
+            border: 1px solid #6a6a6a;
+            box-shadow:
+                60px 0 0 0 #7a7a7a,
+                60px 0 0 1px #6a6a6a;
+        }
+
+        /* Left eyepiece assembly */
+        .left-eyepiece-housing {
+            position: absolute;
+            left: 65px;
+            top: 100px;
+            width: 50px;
+            height: 55px;
+            background: #3a3a3a;
+            border: 3px solid #2a2a2a;
+            border-radius: 8px;
+        }
+
+        .left-eyepiece {
+            position: absolute;
+            left: 75px;
+            top: 110px;
+            width: 30px;
+            height: 35px;
+            background: radial-gradient(circle, #e5e5e5 0%, #c5c5c5 50%, #a5a5a5 100%);
+            border-radius: 50%;
+            border: 3px solid #5a5a5a;
+        }
+
+        .left-eyepiece-inner {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            width: 14px;
+            height: 18px;
+            background: radial-gradient(circle, #ffffff 0%, #d5d5d5 60%);
+            border-radius: 50%;
+            border: 2px solid #8a8a8a;
+        }
+
+        /* Right eyepiece assembly */
+        .right-eyepiece-housing {
+            position: absolute;
+            left: 205px;
+            top: 100px;
+            width: 50px;
+            height: 55px;
+            background: #3a3a3a;
+            border: 3px solid #2a2a2a;
+            border-radius: 8px;
+        }
+
+        .right-eyepiece {
+            position: absolute;
+            left: 215px;
+            top: 110px;
+            width: 30px;
+            height: 35px;
+            background: radial-gradient(circle, #e5e5e5 0%, #c5c5c5 50%, #a5a5a5 100%);
+            border-radius: 50%;
+            border: 3px solid #5a5a5a;
+        }
+
+        .right-eyepiece-inner {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            width: 14px;
+            height: 18px;
+            background: radial-gradient(circle, #ffffff 0%, #d5d5d5 60%);
+            border-radius: 50%;
+            border: 2px solid #8a8a8a;
+        }
+
+        /* Center bridge connector */
+        .center-bridge {
+            position: absolute;
+            left: 135px;
+            top: 115px;
+            width: 50px;
+            height: 30px;
+            background: #4a4a4a;
+            border: 2px solid #3a3a3a;
+        }
+
+        /* Lens detail lines on eyepieces */
+        .lens-detail-left {
+            position: absolute;
+            left: 80px;
+            top: 118px;
+            width: 20px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        .lens-detail-right {
+            position: absolute;
+            left: 220px;
+            top: 118px;
+            width: 20px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        /* Adjustment wheels on sides */
+        .left-wheel {
+            position: absolute;
+            left: 55px;
+            top: 120px;
+            width: 15px;
+            height: 15px;
+            background: #5a5a5a;
+            border-radius: 50%;
+            border: 2px solid #4a4a4a;
+        }
+
+        .left-wheel::before,
+        .left-wheel::after {
+            content: '';
+            position: absolute;
+            background: #3a3a3a;
+        }
+
+        .left-wheel::before {
+            width: 15px;
+            height: 2px;
+            left: 0;
+            top: 6px;
+        }
+
+        .left-wheel::after {
+            width: 2px;
+            height: 15px;
+            left: 6px;
+            top: 0;
+        }
+
+        .right-wheel {
+            position: absolute;
+            left: 250px;
+            top: 120px;
+            width: 15px;
+            height: 15px;
+            background: #5a5a5a;
+            border-radius: 50%;
+            border: 2px solid #4a4a4a;
+        }
+
+        .right-wheel::before,
+        .right-wheel::after {
+            content: '';
+            position: absolute;
+            background: #3a3a3a;
+        }
+
+        .right-wheel::before {
+            width: 15px;
+            height: 2px;
+            left: 0;
+            top: 6px;
+        }
+
+        .right-wheel::after {
+            width: 2px;
+            height: 15px;
+            left: 6px;
+            top: 0;
+        }
+
+        /* Bottom mounting plate */
+        .mounting-plate {
+            position: absolute;
+            left: 100px;
+            top: 163px;
+            width: 120px;
+            height: 15px;
+            background: #6a6a6a;
+            border: 2px solid #5a5a5a;
+        }
+
+        /* Screws/bolts on mounting plate */
+        .screw {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #4a4a4a;
+            border-radius: 50%;
+            border: 1px solid #3a3a3a;
+        }
+
+        .screw-1 {
+            left: 105px;
+            top: 168px;
+        }
+
+        .screw-2 {
+            left: 155px;
+            top: 168px;
+        }
+
+        .screw-3 {
+            left: 205px;
+            top: 168px;
+        }
+
+        /* Side panels detail */
+        .side-panel-left {
+            position: absolute;
+            left: 70px;
+            top: 90px;
+            width: 15px;
+            height: 50px;
+            background: #4a4a4a;
+            border: 2px solid #3a3a3a;
+        }
+
+        .side-panel-right {
+            position: absolute;
+            left: 235px;
+            top: 90px;
+            width: 15px;
+            height: 50px;
+            background: #4a4a4a;
+            border: 2px solid #3a3a3a;
+        }
+
+        /* Forehead rest indicator */
+        .forehead-rest {
+            position: absolute;
+            left: 145px;
+            top: 175px;
+            width: 30px;
+            height: 8px;
+            background: #5a5a5a;
+            border-radius: 4px;
+            border: 1px solid #4a4a4a;
+        }
+
+        /* Lens refraction indicators */
+        .refraction-indicator-left {
+            position: absolute;
+            left: 72px;
+            top: 85px;
+            width: 8px;
+            height: 8px;
+            background: #7a7a7a;
+            border: 1px solid #6a6a6a;
+        }
+
+        .refraction-indicator-right {
+            position: absolute;
+            left: 240px;
+            top: 85px;
+            width: 8px;
+            height: 8px;
+            background: #7a7a7a;
+            border: 1px solid #6a6a6a;
+        }
+
+        /* Pixel art enhancement */
+        .pixel-enhancement {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #2a2a2a;
+            left: 95px;
+            top: 95px;
+            box-shadow:
+                140px 0 0 0 #2a2a2a,
+                20px 30px 0 0 #1a1a1a,
+                120px 30px 0 0 #1a1a1a;
+        }
+
+        h1 {
+            color: #ecf0f1;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            color: #bdc3c7;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .stats {
+            color: #95a5a6;
+            font-size: 12px;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👁️ Phoropter Sprite 👁️</h1>
+        <div class="phoropter-sprite" id="sprite">
+            <!-- Top section -->
+            <div class="phoropter-top"></div>
+
+            <!-- Control knobs -->
+            <div class="control-knob-left"></div>
+            <div class="control-knob-center"></div>
+            <div class="control-knob-right"></div>
+            <div class="top-dial"></div>
+
+            <!-- Main body -->
+            <div class="phoropter-body"></div>
+
+            <!-- Side panels -->
+            <div class="side-panel-left"></div>
+            <div class="side-panel-right"></div>
+
+            <!-- Refraction indicators -->
+            <div class="refraction-indicator-left"></div>
+            <div class="refraction-indicator-right"></div>
+
+            <!-- Left eyepiece -->
+            <div class="left-eyepiece-housing"></div>
+            <div class="left-eyepiece">
+                <div class="left-eyepiece-inner"></div>
+            </div>
+            <div class="lens-detail-left"></div>
+            <div class="left-wheel"></div>
+
+            <!-- Right eyepiece -->
+            <div class="right-eyepiece-housing"></div>
+            <div class="right-eyepiece">
+                <div class="right-eyepiece-inner"></div>
+            </div>
+            <div class="lens-detail-right"></div>
+            <div class="right-wheel"></div>
+
+            <!-- Center bridge -->
+            <div class="center-bridge"></div>
+
+            <!-- Bottom mounting -->
+            <div class="mounting-plate"></div>
+            <div class="screw screw-1"></div>
+            <div class="screw screw-2"></div>
+            <div class="screw screw-3"></div>
+            <div class="forehead-rest"></div>
+
+            <!-- Pixel enhancement details -->
+            <div class="pixel-enhancement"></div>
+        </div>
+
+        <div class="info">
+            CSS Pixel Art | Ophthalmic Phoropter/Refractor
+        </div>
+
+        <div class="stats">
+            Components: 2 eyepieces • 3 control knobs • adjustment wheels<br>
+            Perfect for: Medical games • Eye exam simulators • Retro health apps
+        </div>
+
+        <div class="controls">
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(0.5)'">50%</button>
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(1)'">100%</button>
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(1.5)'">150%</button>
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(2)'">200%</button>
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(3)'">300%</button>
+        </div>
+    </div>
+</body>
+</html>

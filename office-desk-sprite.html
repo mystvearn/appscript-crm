@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Desk Sprite - CSS Pixel Art</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .desk-sprite {
+            position: relative;
+            width: 400px;
+            height: 320px;
+            margin: 20px auto;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            transform: scale(1);
+        }
+
+        /* Smartphone/Device (left side - blue) */
+        .phone {
+            position: absolute;
+            left: 70px;
+            top: 70px;
+            width: 8px;
+            height: 16px;
+            background: #5a9fb8;
+            box-shadow:
+                0 -4px 0 0 #7ab5cc,
+                0 -8px 0 0 #8cc5dc,
+                0 -12px 0 0 #9ed5ec,
+                0 -16px 0 0 #b0e5fc,
+                0 -20px 0 0 #c5e9f5,
+                8px 0 0 0 #4a8fa8,
+                8px -4px 0 0 #6aa5bc,
+                8px -8px 0 0 #7cb5cc,
+                8px -12px 0 0 #8ec5dc,
+                8px -16px 0 0 #a0d5ec,
+                8px -20px 0 0 #b5d9e5;
+        }
+
+        .phone-cord {
+            position: absolute;
+            left: 78px;
+            top: 95px;
+            width: 4px;
+            height: 4px;
+            background: #2a2a2a;
+            box-shadow:
+                0 4px 0 0 #2a2a2a,
+                0 8px 0 0 #2a2a2a,
+                0 12px 0 0 #2a2a2a,
+                4px 16px 0 0 #2a2a2a,
+                4px 20px 0 0 #2a2a2a,
+                4px 24px 0 0 #2a2a2a;
+        }
+
+        /* IV Bag holder (left side - gray pole) */
+        .iv-pole {
+            position: absolute;
+            left: 110px;
+            top: 30px;
+            width: 4px;
+            height: 8px;
+            background: #4a4a4a;
+            box-shadow:
+                0 8px 0 0 #4a4a4a,
+                0 16px 0 0 #4a4a4a,
+                0 24px 0 0 #4a4a4a,
+                0 32px 0 0 #4a4a4a,
+                0 40px 0 0 #4a4a4a,
+                0 48px 0 0 #4a4a4a,
+                0 56px 0 0 #4a4a4a;
+        }
+
+        .iv-bag {
+            position: absolute;
+            left: 104px;
+            top: 25px;
+            width: 8px;
+            height: 12px;
+            background: #d5dde5;
+            border: 2px solid #8a9aa5;
+            border-radius: 2px;
+        }
+
+        /* Old telephone (center-left) */
+        .old-phone {
+            position: absolute;
+            left: 175px;
+            top: 90px;
+            width: 60px;
+            height: 40px;
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+
+        .phone-dial {
+            position: absolute;
+            left: 15px;
+            top: 8px;
+            width: 30px;
+            height: 25px;
+            background: #c5c5c5;
+            border-radius: 50%;
+            border: 2px solid #3a3a3a;
+        }
+
+        .dial-holes {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #5a5a5a;
+            border-radius: 50%;
+            left: 13px;
+            top: 5px;
+            box-shadow:
+                8px 0 0 0 #5a5a5a,
+                4px 8px 0 0 #5a5a5a,
+                12px 8px 0 0 #5a5a5a;
+        }
+
+        /* Handset */
+        .handset {
+            position: absolute;
+            left: 270px;
+            top: 45px;
+            width: 50px;
+            height: 8px;
+            background: #4a4a4a;
+            border-radius: 20px;
+            transform: rotate(-30deg);
+        }
+
+        .handset-cord {
+            position: absolute;
+            left: 260px;
+            top: 65px;
+            width: 3px;
+            height: 3px;
+            background: #3a3a3a;
+            box-shadow:
+                3px 3px 0 0 #3a3a3a,
+                6px 5px 0 0 #3a3a3a,
+                9px 6px 0 0 #3a3a3a,
+                12px 8px 0 0 #3a3a3a,
+                15px 12px 0 0 #3a3a3a,
+                16px 16px 0 0 #3a3a3a,
+                16px 20px 0 0 #3a3a3a,
+                14px 24px 0 0 #3a3a3a,
+                11px 28px 0 0 #3a3a3a;
+        }
+
+        /* Paper/notepad */
+        .paper {
+            position: absolute;
+            left: 165px;
+            top: 145px;
+            width: 35px;
+            height: 28px;
+            background: #f5f5f5;
+            border: 1px solid #d5d5d5;
+            transform: rotate(-15deg);
+        }
+
+        .paper-lines {
+            position: absolute;
+            width: 25px;
+            height: 1px;
+            background: #b5c5d5;
+            left: 5px;
+            top: 8px;
+            box-shadow:
+                0 4px 0 0 #b5c5d5,
+                0 8px 0 0 #b5c5d5,
+                0 12px 0 0 #b5c5d5;
+        }
+
+        /* Desk/table surface */
+        .desk-main {
+            position: absolute;
+            left: 160px;
+            top: 130px;
+            width: 120px;
+            height: 60px;
+            background: #a5a5a5;
+            border: 2px solid #7a7a7a;
+        }
+
+        .desk-front {
+            position: absolute;
+            left: 160px;
+            top: 190px;
+            width: 120px;
+            height: 25px;
+            background: #8a8a8a;
+            border: 2px solid #6a6a6a;
+        }
+
+        /* Monitor/screen (right side) */
+        .monitor {
+            position: absolute;
+            left: 285px;
+            top: 145px;
+            width: 55px;
+            height: 45px;
+            background: #7a7a7a;
+            border: 3px solid #5a5a5a;
+        }
+
+        .monitor-screen {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 40px;
+            height: 28px;
+            background: #3a3a3a;
+            border: 1px solid #2a2a2a;
+        }
+
+        .monitor-base {
+            position: absolute;
+            left: 295px;
+            top: 193px;
+            width: 35px;
+            height: 8px;
+            background: #6a6a6a;
+            border-radius: 4px;
+        }
+
+        .monitor-stand {
+            position: absolute;
+            left: 307px;
+            top: 188px;
+            width: 12px;
+            height: 8px;
+            background: #7a7a7a;
+        }
+
+        /* Keyboard */
+        .keyboard {
+            position: absolute;
+            left: 230px;
+            top: 205px;
+            width: 45px;
+            height: 12px;
+            background: #5a5a5a;
+            border: 1px solid #4a4a4a;
+            border-radius: 2px;
+        }
+
+        .keys {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #3a3a3a;
+            left: 4px;
+            top: 4px;
+            box-shadow:
+                4px 0 0 0 #3a3a3a,
+                8px 0 0 0 #3a3a3a,
+                12px 0 0 0 #3a3a3a,
+                16px 0 0 0 #3a3a3a,
+                20px 0 0 0 #3a3a3a,
+                24px 0 0 0 #3a3a3a,
+                28px 0 0 0 #3a3a3a,
+                32px 0 0 0 #3a3a3a,
+                2px 4px 0 0 #3a3a3a,
+                6px 4px 0 0 #3a3a3a,
+                10px 4px 0 0 #3a3a3a,
+                14px 4px 0 0 #3a3a3a,
+                18px 4px 0 0 #3a3a3a,
+                22px 4px 0 0 #3a3a3a,
+                26px 4px 0 0 #3a3a3a,
+                30px 4px 0 0 #3a3a3a;
+        }
+
+        /* Desk lamp */
+        .lamp-base {
+            position: absolute;
+            left: 345px;
+            top: 210px;
+            width: 20px;
+            height: 8px;
+            background: #6a6a6a;
+            border-radius: 3px;
+        }
+
+        .lamp-arm {
+            position: absolute;
+            left: 353px;
+            top: 115px;
+            width: 4px;
+            height: 8px;
+            background: #5a5a5a;
+            box-shadow:
+                0 8px 0 0 #5a5a5a,
+                0 16px 0 0 #5a5a5a,
+                0 24px 0 0 #5a5a5a,
+                0 32px 0 0 #5a5a5a,
+                0 40px 0 0 #5a5a5a,
+                0 48px 0 0 #5a5a5a,
+                0 56px 0 0 #5a5a5a,
+                0 64px 0 0 #5a5a5a,
+                0 72px 0 0 #5a5a5a,
+                0 80px 0 0 #5a5a5a,
+                0 88px 0 0 #5a5a5a;
+        }
+
+        .lamp-head {
+            position: absolute;
+            left: 340px;
+            top: 105px;
+            width: 25px;
+            height: 15px;
+            background: #8a8a8a;
+            border: 2px solid #6a6a6a;
+            border-radius: 8px 8px 4px 4px;
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+
+        h1 {
+            color: #ecf0f1;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            color: #bdc3c7;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Office Desk Sprite</h1>
+        <div class="desk-sprite" id="sprite">
+            <!-- Phone/Device -->
+            <div class="phone"></div>
+            <div class="phone-cord"></div>
+
+            <!-- IV Bag Holder -->
+            <div class="iv-pole"></div>
+            <div class="iv-bag"></div>
+
+            <!-- Old Rotary Phone -->
+            <div class="old-phone">
+                <div class="phone-dial">
+                    <div class="dial-holes"></div>
+                </div>
+            </div>
+
+            <!-- Handset and cord -->
+            <div class="handset"></div>
+            <div class="handset-cord"></div>
+
+            <!-- Paper/Notepad -->
+            <div class="paper">
+                <div class="paper-lines"></div>
+            </div>
+
+            <!-- Desk surface -->
+            <div class="desk-main"></div>
+            <div class="desk-front"></div>
+
+            <!-- Monitor -->
+            <div class="monitor">
+                <div class="monitor-screen"></div>
+            </div>
+            <div class="monitor-stand"></div>
+            <div class="monitor-base"></div>
+
+            <!-- Keyboard -->
+            <div class="keyboard">
+                <div class="keys"></div>
+            </div>
+
+            <!-- Desk Lamp -->
+            <div class="lamp-base"></div>
+            <div class="lamp-arm"></div>
+            <div class="lamp-head"></div>
+        </div>
+
+        <div class="info">
+            CSS Pixel Art Recreation | Retro Office Desk Scene
+        </div>
+
+        <div class="controls">
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(0.5)'">50%</button>
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(1)'">100%</button>
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(1.5)'">150%</button>
+            <button onclick="document.getElementById('sprite').style.transform = 'scale(2)'">200%</button>
+        </div>
+    </div>
+</body>
+</html>
